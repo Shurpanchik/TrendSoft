@@ -1,0 +1,21 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
+    </head>
+<body>
+    <form action="#" th:action ="@{/editnews/{id}(id=${news.id})}" th:object="${news}" method="post">
+  <p><b>Name of news</b></p>
+  <input type="text" th:field="*{name}"/>
+  <p><b> Text of news</b></p>
+  <input type="text" th:field="*{text}"/>
+  <input type="submit" value="add"/>
+ </form>
+</body>
+
+</html>

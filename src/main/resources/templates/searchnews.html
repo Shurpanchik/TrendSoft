@@ -1,0 +1,23 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
+</head>
+<body>
+<p><a th:href="@{/news}">All news</a></p>
+<tr th:each="news: ${searchNews}" >
+    <td>
+        <b> <p  th:text="${news.name}"/> </b>
+        <p th:text="${news.text}"/>
+        <p><a th:href="@{/editnews/{id}(id=${news.id})}">Edit news</a></p>
+        <p><a th:href="@{/deletenews/{id}(id=${news.id})}">Delete news</a></p>
+    </td>
+</tr>
+
+</body>
+</html>

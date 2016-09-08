@@ -1,0 +1,10 @@
+com\shur\trendsofttesttask\DeleteNewsController.class
+com\shur\trendsofttesttask\EditNewsController.class
+com\shur\trendsofttesttask\entities\CategoryRepository.class
+com\shur\trendsofttesttask\entities\NewsRepository.class
+com\shur\trendsofttesttask\App.class
+com\shur\trendsofttesttask\entities\News.class
+com\shur\trendsofttesttask\NewsController.class
+com\shur\trendsofttesttask\AddNewsController.class
+com\shur\trendsofttesttask\SearchNewsController.class
+com\shur\trendsofttesttask\entities\Category.class

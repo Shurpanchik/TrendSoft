@@ -1,0 +1,39 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
+    </head>
+    <body>
+        <p th:text="'Hello,Andrey! '" />
+
+         <form action="#" th:action ="@{/searchnews/(name=searchName,text=searchText )}"  method="get">
+             <p><b> Search name</b></p>
+             <input type="text" name="searchName"/>
+             <p><b> Search text</b></p>
+             <input type="text" text="searchText"/>
+             <input type="submit" value="Search"/>
+        </form>
+
+        <form>
+        <p><button formaction="addnews.html">Add News</button></p>
+        </form>
+
+        <tr th:each="news: ${allNews}" >
+        <td> 
+           <b> <p  th:text="${news.name}"/> </b>
+            <p th:text="${news.text}"/>
+            <p th:text="${news.category.getName()}"/>
+
+
+            <p><a th:href="@{/editnews/{id}(id=${news.id})}">Edit news</a></p>
+             <p><a th:href="@{/deletenews/{id}(id=${news.id})}">Delete news</a></p> 
+        </td>
+    </tr>
+
+</body>
+</html>
