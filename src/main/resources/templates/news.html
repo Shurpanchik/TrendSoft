@@ -11,11 +11,19 @@ and open the template in the editor.
     <body>
         <p th:text="'Hello,Andrey! '" />
 
-         <form action="#" th:action ="@{/searchnews/(name=searchName,text=searchText )}"  method="get">
+         <form action="#" th:action ="@{/searchnews/(name=searchName,text=searchText, id = searchCategory  )}"  method="get">
              <p><b> Search name</b></p>
              <input type="text" name="searchName"/>
              <p><b> Search text</b></p>
-             <input type="text" text="searchText"/>
+             <input type="text" name="searchText"/>
+             <p>
+             <select name="searchCategory">
+                 <option th:each="news : ${allNews}"
+                         th:value="${news.category.id}"
+                         th:text="${news.category.name}"
+                              />
+             </select>
+             </p>
              <input type="submit" value="Search"/>
         </form>
 

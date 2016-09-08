@@ -14,6 +14,15 @@ and open the template in the editor.
   <input type="text" th:field="*{name}"/>
   <p><b> Text of news</b></p>
   <input type="text" th:field="*{text}"/>
+  <p><b> Category of news</b></p>
+        <p>
+            <select th:field="*{category.id}" >
+                <option th:each="category_section : ${allCategories}"
+                        th:value="${category_section.id}"
+                        th:text="${category_section.name}"
+                        />
+            </select>
+        </p>
   <input type="submit" value="add"/>
  </form>
 </body>
