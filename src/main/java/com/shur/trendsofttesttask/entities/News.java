@@ -4,8 +4,9 @@
  */
 package com.shur.trendsofttesttask.entities;
 
-import java.util.Date;
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 /**
  *
  * @author ����
@@ -18,7 +19,7 @@ public class News {
     private String name;
     private String text;
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date date;
+    private Calendar date;
     @ManyToOne(targetEntity = Category.class)
     private Category category;
 
@@ -69,14 +70,19 @@ public class News {
     /**
      * @return the date
      */
-    public Date getDate() {
+    public Calendar getDate() {
         return date;
+    }
+
+    public  String getDateWithFormat(){
+        SimpleDateFormat format1 = new SimpleDateFormat("dd.MM.yyyy hh:mm");
+        return format1.format(date.getTime());
     }
 
     /**
      * @param date the date to set
      */
-    public void setDate(Date date) {
+    public void setDate(Calendar date) {
         this.date = date;
     }
 

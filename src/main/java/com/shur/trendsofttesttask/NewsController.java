@@ -31,6 +31,7 @@ public class NewsController {
     public String news(Model model) {
      List <News> allNews= (List<News>) newsRepository.findAll();
      List <Category> allCategories = (List<Category>)  categoryRepository.findAll();
+      model.addAttribute("allCategories",allCategories);
       model.addAttribute("allNews",allNews);
         return "news";
     }

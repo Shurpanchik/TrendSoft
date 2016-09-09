@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -41,7 +41,7 @@ public class AddNewsController {
    
     @RequestMapping(value = "/addnews", method = RequestMethod.POST)
     public String addNewsPost(@ModelAttribute News news, Model model) {
-        news.setDate(new Date());
+        news.setDate(new GregorianCalendar());
         newsRepository.save(news);
         return "redirect:/news";
     }

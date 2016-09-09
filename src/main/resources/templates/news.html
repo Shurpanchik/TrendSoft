@@ -9,35 +9,35 @@ and open the template in the editor.
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
     </head>
     <body>
-        <p th:text="'Hello,Andrey! '" />
 
-         <form action="#" th:action ="@{/searchnews/(name=searchName,text=searchText, id = searchCategory  )}"  method="get">
+        <form>
+        <p><button formaction="addnews.html">Add News</button></p>
+        </form>
+
+         <form action="#" th:action ="@{/searchnews/(searchName=name,text=searchText, categoryId = searchCategory  )}"  method="get">
              <p><b> Search name</b></p>
              <input type="text" name="searchName"/>
              <p><b> Search text</b></p>
              <input type="text" name="searchText"/>
              <p>
              <select name="searchCategory">
-                 <option th:each="news : ${allNews}"
-                         th:value="${news.category.id}"
-                         th:text="${news.category.name}"
+                 <option th:each="category : ${allCategories}"
+                         th:value="${category.id}"
+                         th:text="${category.name}"
                               />
              </select>
              </p>
              <input type="submit" value="Search"/>
         </form>
 
-        <form>
-        <p><button formaction="addnews.html">Add News</button></p>
-        </form>
+
 
         <tr th:each="news: ${allNews}" >
         <td> 
            <b> <p  th:text="${news.name}"/> </b>
             <p th:text="${news.text}"/>
             <p th:text="${news.category.getName()}"/>
-
-
+            <p th:text ="${news.getDateWithFormat()}"/>
             <p><a th:href="@{/editnews/{id}(id=${news.id})}">Edit news</a></p>
              <p><a th:href="@{/deletenews/{id}(id=${news.id})}">Delete news</a></p> 
         </td>

@@ -25,11 +25,11 @@ public class SearchNewsController {
     private NewsRepository newsRepository;
     @RequestMapping(value = "/searchnews" , method = RequestMethod.GET)
     public String searchNewsGet
-            (@RequestParam(value="searchParameter", required=false,defaultValue="") String name,
-             @RequestParam(value="searchParameter", required=false,defaultValue="") String text,
-             @RequestParam(value="searchParameter", required=false,defaultValue="1") int categoryID,
+            (@RequestParam(value="name", required=false,defaultValue="") String name,
+             @RequestParam(value="text", required=false,defaultValue="") String text,
+             @RequestParam(value="category", required=false, defaultValue="1") int category,
              Model model) {
-            List<News> searchNews= newsRepository.search(name,text, categoryID);
+            List<News> searchNews= newsRepository.search(name,text, category);
              model.addAttribute("searchNews",searchNews);
              return "/searchnews";
     }

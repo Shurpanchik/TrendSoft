@@ -7,13 +7,19 @@ and open the template in the editor.
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
+        <style type="textNews">
+            TEXTAREA {
+            width: 100%; /* Ширина в процентах */
+            height: 100px; /* Высота в пикселах */
+            }
+        </style>
     </head>
 <body>
     <form action="#" th:action ="@{/addnews}" th:object="${news}" method="post">
   <p><b>Name of news</b></p>
   <input type="text" th:field="*{name}"/>
   <p><b> Text of news</b></p>
-  <input type="text" th:field="*{text}"/>
+  <input type="textNews" th:field="*{text}"/>
   <p><b> Category of news</b></p>
         <p>
             <select th:field="*{category.id}" >
