@@ -17,6 +17,7 @@ public class News {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
+    @Column(length = 1000)
     private String text;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar date;

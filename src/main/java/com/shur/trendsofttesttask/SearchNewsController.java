@@ -27,7 +27,7 @@ public class SearchNewsController {
     public String searchNewsGet
             (@RequestParam(value="name", required=false,defaultValue="") String name,
              @RequestParam(value="text", required=false,defaultValue="") String text,
-             @RequestParam(value="category", required=false, defaultValue="1") int category,
+             @RequestParam(value="category", required=false) int category,
              Model model) {
             List<News> searchNews= newsRepository.search(name,text, category);
              model.addAttribute("searchNews",searchNews);
