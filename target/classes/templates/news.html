@@ -4,44 +4,52 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
-    </head>
-    <body>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
+    <link type="text/css" href="css/main.css" rel="stylesheet"/>
+</head>
+<body>
 
-        <form>
-        <p><button formaction="addnews.html">Add News</button></p>
-        </form>
+<form>
+    <p>
+        <button formaction="addnews.html">Add News</button>
+    </p>
+</form>
 
-         <form action="#" th:action ="@{/searchnews/(searchName=name,text=searchText, categoryId = searchCategory  )}"  method="get">
-             <p><b> Search name</b></p>
-             <input type="text" name="searchName"/>
-             <p><b> Search text</b></p>
-             <input type="text" name="searchText"/>
-             <p>
-             <select name="searchCategory">
-                 <option th:each="category : ${allCategories}"
-                         th:value="${category.id}"
-                         th:text="${category.name}"
-                              />
-             </select>
-             </p>
-             <input type="submit" value="Search"/>
-        </form>
+<form action="#" th:action="@{/searchnews/(searchName=name,text=searchText, categoryId = searchCategory  )}"
+      method="get">
+    <b> Search name</b>
+    <input type="text" name="name"/>
+
+    <b> Search text</b>
+    <input type="text" name="text"/>
+
+    <select name="category">
+        <option th:each="category : ${allCategories}"
+                th:value="${category.id}"
+                th:text="${category.name}"
+        />
+    </select>
+    <input type="submit" value="Search"/>
+</form>
 
 
+<tr th:each="news: ${allNews}">
+    <td>
+        <b><p th:text="${news.name}"/></b>
 
-        <tr th:each="news: ${allNews}" >
-        <td> 
-           <b> <p  th:text="${news.name}"/> </b>
-            <p th:text="${news.text}"/>
-            <p th:text="${news.category.getName()}"/>
-            <p th:text ="${news.getDateWithFormat()}"/>
-            <p><a th:href="@{/editnews/{id}(id=${news.id})}">Edit news</a></p>
-             <p><a th:href="@{/deletenews/{id}(id=${news.id})}">Delete news</a></p> 
-        </td>
-    </tr>
+        <p th:text="${news.text}"/>
+
+        <p th:text="${news.category.getName()}"/>
+
+        <p th:text="${news.getDateWithFormat()}"/>
+
+        <p><a th:href="@{/editnews/{id}(id=${news.id})}">Edit news</a></p>
+
+        <p><a th:href="@{/deletenews/{id}(id=${news.id})}">Delete news</a></p>
+    </td>
+</tr>
 
 </body>
 </html>

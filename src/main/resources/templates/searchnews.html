@@ -14,6 +14,8 @@ and open the template in the editor.
     <td>
         <b> <p  th:text="${news.name}"/> </b>
         <p th:text="${news.text}"/>
+        <p th:text="${news.category.getName()}"/>
+        <p th:text="${news.getDateWithFormat()}"/>
         <p><a th:href="@{/editnews/{id}(id=${news.id})}">Edit news</a></p>
         <p><a th:href="@{/deletenews/{id}(id=${news.id})}">Delete news</a></p>
     </td>

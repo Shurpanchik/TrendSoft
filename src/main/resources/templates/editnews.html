@@ -16,7 +16,10 @@ and open the template in the editor.
     <input type="text" th:field="*{name}"/>
 
     <p><b> Text of news</b></p>
-    <textarea th:field="*{text}"/>
+    <textarea
+           cols="100"
+           rows="20"
+            th:field="*{text}"/>
 
     <p><b> Category of news</b></p>
 

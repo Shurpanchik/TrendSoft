@@ -9,14 +9,10 @@ text-decoration: none;
 }
 input[type="text"] {
 border-radius: 3px;
-border: 1px solid #cccccc;
 height: 25px;
 margin: 10px;
-padding-left: 5px;
 }
 
-textarea {
-    width: 70%;
-    height: 100px;
-}
+
+
 
