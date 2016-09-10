@@ -27,15 +27,10 @@ public class App implements CommandLineRunner
 
     @Override
     public void run(String... strings) throws Exception {
-        categoryRepository.save(new Category(1, "TEST"));
-        categoryRepository.save(new Category(2, "ANOTHER TEST"));
-        categoryRepository.save(new Category(3, "sfjkhtgdkj"));
-
-        Iterable<Category> categories = categoryRepository.findAll();
-        for(Category category: categories) {
-            System.out.println(category.getId() + " " + category.getName());
-        }
-    }
+        categoryRepository.save(new Category(1, "SPORT"));
+        categoryRepository.save(new Category(2, "CULTURE"));
+        categoryRepository.save(new Category(3, "SHOPPING"));
+            }
 
     
 }
